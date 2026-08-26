@@ -3,7 +3,8 @@
 #include <assert.h>
 #include <math.h>
 #define EPSILON 1.0e-10
-#include <windows.h>
+//#include <windows.h>
+
 enum NUMBER_ROOTS{
 	NO_ROOT=0,
 	ONE_ROOT=1,
@@ -18,6 +19,7 @@ struct testcase{
 	double x_1ref, x_2ref; 
 };
 
+int asker(char* a);
 bool compair(double a, double b );
 void compair_with_zero(double* a);
 void output(int w , struct testcase* some );
