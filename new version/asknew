@@ -1,0 +1,70 @@
+
+int asker(char* ans ){
+	assert(ans != NULL);
+    clean_buff();
+	printf( "\e[32mDo you want to test this programm? (Enter only yes or no )\n");
+	int z = scanf("%10s", ans);
+    if ( z == 1 && checkbuff() == 1){
+        if (strcmp(ans,"yes")==0){
+            runalltests();	
+        }
+        else if (strcmp(ans, "no")==0){
+            struct testcase some = {};
+            printf(".......ok\n");
+            int w = 0;
+            int y = input(  &some );
+            while (y == 0 ){
+                clean_buff();
+                y = input(  &some );
+                //printf("%d\n", y);
+            }
+            printf("a = %lg, b = %lg, c = %lg\n", some.a, some.b, some.c);
+            w = solve( &some  );
+            output( w , &some );
+        }
+        else{
+            printf("\e[33mWhat do you mean? \nPlease try to answer again\n");
+            asker(ans);	
+        }
+        return 0 ; 
+
+
+    }
+
+	else{
+        printf("what do you mean?\n");
+        asker(*ans);
+
+    }
+}
+
+
+
+int asker(char* ans ){
+	assert(ans != NULL);
+	printf( "\e[32mDo you want to test this programm? (Enter only yes or no )\n");
+	scanf("%10s", ans);
+	if (strcmp(ans,"yes") == 0){
+		runalltests();	
+	}
+	else if (strcmp(ans, "no") == 0){
+		struct testcase some = {};
+		printf("ok\n");
+		int w = 0;
+		int y = input(  &some );
+		while (y == 0 ){
+			clean_buff();
+			y = input(  &some );
+			//printf("%d\n", y);
+		}
+		printf("a = %lg, b = %lg, c = %lg\n", some.a, some.b, some.c);
+		w = solve( &some  );
+		output( w , &some );
+	}
+	else{
+		printf("\e[33mWhat do you mean? \nPlease try to answer again\n");
+		asker(ans);	
+	}
+	
+	return 0 ; 
+}
